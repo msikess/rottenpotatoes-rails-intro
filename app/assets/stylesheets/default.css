@@ -10,7 +10,7 @@ div#main {
   margin: 0;
   padding: 0 20px 20px;
 }
-a:hover {
+a {
   background: transparent;
   color: maroon;
   text-decoration: underline;
