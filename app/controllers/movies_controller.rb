@@ -16,6 +16,13 @@ class MoviesController < ApplicationController
     else
       @movies = Movie.all
     end
+    @all_ratings = Movie.ratings_array
+    if params[:ratings]
+      clicked_boxes = params[:ratings].keys
+    else
+      clicked_boxes = @all_ratings
+    end
+    @movies = @movies.where(:rating => clicked_boxes)
   end
 
   def new
