@@ -15,8 +15,8 @@ class MoviesController < ApplicationController
       session[:sorting] = params[:sorting]
       @movies = Movie.all.order(session[:sorting])
     elsif session[:sorting]
-      redirect_to :back and return
-     # @movies = Movie.all.order(session[:sorting])
+      #redirect_to :back and return
+      @movies = Movie.all.order(session[:sorting])
     else
       @movies = Movie.all
     end
@@ -25,8 +25,8 @@ class MoviesController < ApplicationController
       session[:ratings] = params[:ratings]
       clicked_boxes = session[:ratings].keys
     elsif session[:ratings]
-      redirect_to :back and return
-      #clicked_boxes = session[:ratings].keys
+      #redirect_to :back and return
+      clicked_boxes = session[:ratings].keys
     else
       clicked_boxes = @all_ratings
     end
