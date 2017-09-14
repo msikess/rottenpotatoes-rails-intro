@@ -5,7 +5,7 @@
   Include:
   - @all_ratings.each do |rating|
     = rating
-    - clicked = session[:ratings].include? rating
+    - clicked = @clicked_boxes.include? rating
     = check_box_tag "ratings[#{rating}]", "1" ,clicked, id: "ratings_#{rating}"
   = submit_tag 'Refresh', id: "ratings_submit"
 
