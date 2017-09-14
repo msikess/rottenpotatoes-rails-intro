@@ -13,20 +13,18 @@ class MoviesController < ApplicationController
   def index
     if params[:sorting]
       session[:sorting] = params[:sorting]
-      @movies = Movie.all.order(params[:sorting])
+      @movies = Movie.all.order(session[:sorting])
     elsif session[:sorting]
       @movies = Movie.all.order(session[:sorting])
     else
       @movies = Movie.all
     end
     @all_ratings = Movie.ratings_array
-    puts "RATINGS"
-    puts @all_ratings
     if params[:ratings]
       session[:ratings] = params[:ratings]
-      @clicked_boxes = params[:ratings].keys
+      @clicked_boxes = session[:ratings].keys
     elsif session[:ratings]
-      @@clicked_boxes = session[:ratings].keys
+      @clicked_boxes = session[:ratings].keys
     else
       @clicked_boxes = @all_ratings
     end
